@@ -4,9 +4,6 @@ import Button from '../components/Button';
 
 const RootPage = () => {
   const navigate = useNavigate();
-  const handleNavigateBtnClick = (path: string) => {
-    navigate(path);
-  };
 
   return (
     <section className="flex h-96 w-full flex-col items-center justify-between">
@@ -14,14 +11,14 @@ const RootPage = () => {
       <section className="flex w-48 flex-row justify-between">
         <Button
           onClick={() => {
-            handleNavigateBtnClick('/signup');
+            navigate('/signup');
           }}
         >
           회원가입
         </Button>
         <Button
           onClick={() => {
-            handleNavigateBtnClick('/signin');
+            navigate('/signin');
           }}
         >
           로그인
