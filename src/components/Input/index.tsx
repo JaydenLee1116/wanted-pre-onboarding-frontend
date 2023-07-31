@@ -4,17 +4,22 @@ interface InputProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+  htmlFor: string;
   children: ReactNode;
 }
-interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {}
+interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  type: string;
+  value: string;
+}
 interface BottomTextProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode;
 }
 
 const Input = ({ children }: InputProps) => {
-  return <div className="w-full h-fit mb-6 flex flex-col justify-between items-center">{children}</div>;
+  return <div className="mb-6 flex h-fit w-full flex-col items-center justify-between">{children}</div>;
 };
-const Label = ({ children, htmlFor, ...props }: LabelProps) => {
+const Label = ({ htmlFor, children, ...props }: LabelProps) => {
   return (
     <label htmlFor={htmlFor} {...props} className="p-4 font-bold">
       {children}
