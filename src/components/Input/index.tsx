@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode, InputHTMLAttributes, LabelHTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode, InputHTMLAttributes, LabelHTMLAttributes, ChangeEvent } from 'react';
 
 interface InputProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -11,6 +11,7 @@ interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   type: string;
   value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 interface BottomTextProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode;
@@ -21,13 +22,22 @@ const Input = ({ children }: InputProps) => {
 };
 const Label = ({ htmlFor, children, ...props }: LabelProps) => {
   return (
-    <label htmlFor={htmlFor} {...props} className="p-4 font-bold">
+    <label htmlFor={htmlFor} className="p-4 font-bold" {...props}>
       {children}
     </label>
   );
 };
-const TextField = ({ id, type, value, ...props }: TextFieldProps) => {
-  return <input id={id} type={type} value={value} {...props} className="border border-blue-300" />;
+const TextField = ({ id, type, value, onChange, ...props }: TextFieldProps) => {
+  return (
+    <input
+      id={id}
+      type={type}
+      value={value}
+      onChange={onChange}
+      className="border border-blue-300"
+      {...props}
+    />
+  );
 };
 const BottomText = ({ children, ...props }: BottomTextProps) => {
   return <p {...props}>{children}</p>;
