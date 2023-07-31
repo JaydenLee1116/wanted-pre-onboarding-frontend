@@ -1,7 +1,11 @@
+import { useNavigate } from 'react-router-dom';
+
 import Input from '../components/Input';
 import Button from '../components/Button';
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="flex h-96 w-full flex-col items-center justify-between">
       <div className="text-4xl font-bold">회원가입</div>
@@ -19,6 +23,9 @@ const SignUpPage = () => {
         <Button
           onClick={() => {
             // TODO: 회원가입 POST 요청 보내기
+            // TODO: 회원가입 성공 시 로그인 페이지로 이동하기
+            // TODO: 회원가입 실패 시 에러 메시지 보여주기
+            navigate('/signin');
           }}
         >
           회원가입하기
@@ -26,6 +33,7 @@ const SignUpPage = () => {
         <Button
           onClick={() => {
             // TODO: 이메일, 비밀번호 상태 초기화하고 루트 페이지로 이동하기
+            navigate('/');
           }}
         >
           취소하기
