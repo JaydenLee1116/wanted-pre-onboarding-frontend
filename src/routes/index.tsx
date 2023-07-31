@@ -1,17 +1,21 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import RootPage from '../pages/RootPage';
+import SignUpPage from '../pages/SignUpPage';
+import SignInPage from '../pages/SignInPage';
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>홈</div>,
+    element: <RootPage />,
   },
   {
     path: '/signup',
-    element: <div>회원가입 페이지</div>,
+    element: <SignUpPage />,
   },
   {
     path: '/signin',
-    element: <div>로그인 페이지</div>,
+    element: <SignInPage />,
   },
 ]);
 
