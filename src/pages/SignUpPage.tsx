@@ -11,12 +11,24 @@ const SignUpPage = () => {
       <div className="text-4xl font-bold">회원가입</div>
       <Input>
         <Input.Label htmlFor="email">이메일</Input.Label>
-        <Input.TextField id="email" type="email" value="이메일입니다." onChange={() => {}} />
+        <Input.TextField
+          id="email"
+          type="email"
+          value="이메일입니다."
+          onChange={() => {}}
+          data-testid="email-input"
+        />
         <Input.BottomText>이메일 형식에 맞게 입력해주세요.</Input.BottomText>
       </Input>
       <Input>
         <Input.Label htmlFor="password">비밀번호</Input.Label>
-        <Input.TextField id="password" type="password" value="비밀번호입니다." onChange={() => {}} />
+        <Input.TextField
+          id="password"
+          type="password"
+          value="비밀번호입니다."
+          onChange={() => {}}
+          data-testid="password-input"
+        />
         <Input.BottomText>비밀번호는 8자 이상이어야 합니다.</Input.BottomText>
       </Input>
       <section className="flex w-48 flex-row justify-between">
@@ -27,6 +39,7 @@ const SignUpPage = () => {
             // TODO: 회원가입 실패 시 에러 메시지 보여주기
             navigate('/signin');
           }}
+          data-testid="signup-button"
         >
           회원가입하기
         </Button>
