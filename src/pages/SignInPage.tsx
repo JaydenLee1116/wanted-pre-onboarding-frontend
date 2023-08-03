@@ -1,11 +1,23 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
+import isValid from '../utils/isValid';
 
 const SignInPage = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const isSignInBtnDisabled = !isValid.email(email) || !isValid.password(password);
   return (
     <section className="flex h-96 w-full flex-col items-center justify-between">
       <div className="text-4xl font-bold">로그인</div>
@@ -14,8 +26,8 @@ const SignInPage = () => {
         <Input.TextField
           id="email"
           type="email"
-          value="이메일입니다."
-          onChange={() => {}}
+          value={email}
+          onChange={handleEmailChange}
           data-testid="email-input"
         />
         <Input.BottomText>이메일 형식에 맞게 입력해주세요.</Input.BottomText>
@@ -25,8 +37,8 @@ const SignInPage = () => {
         <Input.TextField
           id="password"
           type="password"
-          value="비밀번호입니다."
-          onChange={() => {}}
+          value={password}
+          onChange={handlePasswordChange}
           data-testid="password-input"
         />
         <Input.BottomText>비밀번호는 8자 이상이어야 합니다.</Input.BottomText>
@@ -38,6 +50,7 @@ const SignInPage = () => {
             navigate('/todo');
           }}
           data-testid="signin-button"
+          disabled={isSignInBtnDisabled}
         >
           로그인하기
         </Button>
