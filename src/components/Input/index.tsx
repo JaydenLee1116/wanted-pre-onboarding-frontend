@@ -18,7 +18,9 @@ interface BottomTextProps extends HTMLAttributes<HTMLParagraphElement> {
 }
 
 const Input = ({ children }: InputProps) => {
-  return <div className="mb-6 flex h-fit w-full flex-col items-center justify-between">{children}</div>;
+  return (
+    <div className="relative mb-6 flex h-fit w-full flex-col items-center justify-between">{children}</div>
+  );
 };
 const Label = ({ htmlFor, children, ...props }: LabelProps) => {
   return (
@@ -40,7 +42,11 @@ const TextField = ({ id, type, value, onChange, ...props }: TextFieldProps) => {
   );
 };
 const BottomText = ({ children, ...props }: BottomTextProps) => {
-  return <p {...props}>{children}</p>;
+  return (
+    <p className="absolute top-24 cursor-default select-none" {...props}>
+      {children}
+    </p>
+  );
 };
 
 Input.Label = Label;
