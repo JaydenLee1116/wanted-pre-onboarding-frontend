@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
+import isValid from '../utils/isValid';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -14,12 +15,6 @@ const SignUpPage = () => {
   };
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
-  };
-  const isValidEmail = (email: string) => {
-    return email.includes('@');
-  };
-  const isValidPassword = (password: string) => {
-    return password.length >= 8;
   };
 
   return (
@@ -56,7 +51,7 @@ const SignUpPage = () => {
             navigate('/signin');
           }}
           data-testid="signup-button"
-          disabled={!isValidEmail(email) || !isValidPassword(password)}
+          disabled={!isValid.email(email) || !isValid.password(password)}
         >
           회원가입하기
         </Button>
