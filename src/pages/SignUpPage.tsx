@@ -17,6 +17,8 @@ const SignUpPage = () => {
     setPassword(e.target.value);
   };
 
+  const isSignUpBtnDisabled = !isValid.email(email) || !isValid.password(password);
+
   return (
     <section className="flex h-96 w-full flex-col items-center justify-between">
       <div className="text-4xl font-bold">회원가입</div>
@@ -51,7 +53,7 @@ const SignUpPage = () => {
             navigate('/signin');
           }}
           data-testid="signup-button"
-          disabled={!isValid.email(email) || !isValid.password(password)}
+          disabled={isSignUpBtnDisabled}
         >
           회원가입하기
         </Button>
