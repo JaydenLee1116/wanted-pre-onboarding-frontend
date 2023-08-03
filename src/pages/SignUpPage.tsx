@@ -31,7 +31,8 @@ const SignUpPage = () => {
           onChange={handleEmailChange}
           data-testid="email-input"
         />
-        <Input.BottomText>이메일 형식에 맞게 입력해주세요.</Input.BottomText>
+        {!email ||
+          (!isValid.email(email) && <Input.BottomText>이메일 형식에 맞게 입력해주세요.</Input.BottomText>)}
       </Input>
       <Input>
         <Input.Label htmlFor="password">비밀번호</Input.Label>
@@ -42,7 +43,10 @@ const SignUpPage = () => {
           onChange={handlePasswordChange}
           data-testid="password-input"
         />
-        <Input.BottomText>비밀번호는 8자 이상이어야 합니다.</Input.BottomText>
+        {!password ||
+          (!isValid.password(password) && (
+            <Input.BottomText>비밀번호는 8자 이상이어야 합니다.</Input.BottomText>
+          ))}
       </Input>
       <section className="flex w-48 flex-row justify-between">
         <Button
