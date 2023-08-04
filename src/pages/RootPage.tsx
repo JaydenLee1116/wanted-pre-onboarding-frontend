@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../components/Button';
+import PageLayout from '../components/PageLayout';
+import Title from '../components/Title';
 
 const RootPage = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="flex h-96 w-full flex-col items-center justify-between">
-      <div className="text-4xl font-bold">JDN TODO LIST</div>
+    <PageLayout className="flex h-96 w-full flex-col items-center justify-between">
+      <Title className="text-4xl font-bold">JDN TODO LIST</Title>
       <section className="flex w-48 flex-row justify-between">
         <Button
           onClick={() => {
@@ -24,7 +26,7 @@ const RootPage = () => {
           로그인
         </Button>
       </section>
-    </section>
+    </PageLayout>
   );
 };
 
