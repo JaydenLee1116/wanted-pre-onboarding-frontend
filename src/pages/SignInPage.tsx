@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../components/Button';
-import Input from '../components/Input';
-import PageLayout from '../components/PageLayout';
-import Title from '../components/Title';
+import Button from '../components/common/Button';
+import Input from '../components/common/Input';
+import PageLayout from '../components/common/PageLayout';
+import Title from '../components/common/Title';
 
 import isValid from '../utils/isValid';
 import { axiosFetch } from '../api/axiosInstance';
@@ -80,7 +80,6 @@ const SignInPage = () => {
         </Button>
         <Button
           onClick={() => {
-            // TODO: 이메일, 비밀번호 상태 초기화하고 루트 페이지로 이동하기
             navigate('/');
           }}
         >
