@@ -12,7 +12,7 @@ const TodoPage = () => {
   });
 
   return (
-    <PageLayout className="flex h-96 w-full flex-col items-center justify-between">
+    <PageLayout>
       <Title>투두 리스트</Title>
     </PageLayout>
   );

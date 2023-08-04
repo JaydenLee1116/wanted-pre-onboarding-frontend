@@ -42,7 +42,7 @@ const SignUpPage = () => {
   }, []);
 
   return (
-    <PageLayout className="flex h-96 w-full flex-col items-center justify-between">
+    <PageLayout>
       <Title>회원가입</Title>
       <Input>
         <Input.Label htmlFor="email">이메일</Input.Label>

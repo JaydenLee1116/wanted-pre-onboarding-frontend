@@ -46,7 +46,7 @@ const SignInPage = () => {
   }, []);
 
   return (
-    <PageLayout className="flex h-96 w-full flex-col items-center justify-between">
+    <PageLayout>
       <Title>로그인</Title>
       <Input>
         <Input.Label htmlFor="email">이메일</Input.Label>

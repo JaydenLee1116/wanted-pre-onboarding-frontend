@@ -8,7 +8,7 @@ const RootPage = () => {
   const navigate = useNavigate();
 
   return (
-    <PageLayout className="flex h-96 w-full flex-col items-center justify-between">
+    <PageLayout>
       <Title className="text-4xl font-bold">JDN TODO LIST</Title>
       <section className="flex w-48 flex-row justify-between">
         <Button
