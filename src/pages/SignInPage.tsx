@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Input from '../components/Input';
@@ -37,6 +37,11 @@ const SignInPage = () => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) navigate('/todo');
+  }, []);
 
   return (
     <section className="flex h-96 w-full flex-col items-center justify-between">
