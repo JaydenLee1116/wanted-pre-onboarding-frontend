@@ -27,7 +27,7 @@ const SignInPage = () => {
         password,
       });
       const { status, data } = res;
-      const { accessToken } = data;
+      const accessToken = data.access_token;
       console.log('응답 확인: ', res);
       if (status === 200) {
         localStorage.setItem('accessToken', accessToken);
