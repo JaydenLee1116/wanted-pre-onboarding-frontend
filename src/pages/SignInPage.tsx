@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Input from '../components/Input';
 import Button from '../components/Button';
+import Input from '../components/Input';
+import PageLayout from '../components/PageLayout';
 import Title from '../components/Title';
+
 import isValid from '../utils/isValid';
 import { axiosFetch } from '../api/axiosInstance';
 
@@ -11,6 +13,7 @@ const SignInPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isSignInBtnDisabled = !isValid.email(email) || !isValid.password(password);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -18,8 +21,6 @@ const SignInPage = () => {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-
-  const isSignInBtnDisabled = !isValid.email(email) || !isValid.password(password);
 
   const handleSignInBtnClick = async () => {
     try {
@@ -45,7 +46,7 @@ const SignInPage = () => {
   }, []);
 
   return (
-    <section className="flex h-96 w-full flex-col items-center justify-between">
+    <PageLayout className="flex h-96 w-full flex-col items-center justify-between">
       <Title>로그인</Title>
       <Input>
         <Input.Label htmlFor="email">이메일</Input.Label>
@@ -86,7 +87,7 @@ const SignInPage = () => {
           취소하기
         </Button>
       </section>
-    </section>
+    </PageLayout>
   );
 };
 

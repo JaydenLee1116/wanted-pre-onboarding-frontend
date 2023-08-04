@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import PageLayout from '../components/PageLayout';
 import Title from '../components/Title';
 
 const TodoPage = () => {
@@ -11,9 +12,9 @@ const TodoPage = () => {
   });
 
   return (
-    <section className="flex h-96 w-full flex-col items-center justify-between">
+    <PageLayout className="flex h-96 w-full flex-col items-center justify-between">
       <Title>투두 리스트</Title>
-    </section>
+    </PageLayout>
   );
 };
 
