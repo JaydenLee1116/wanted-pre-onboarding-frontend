@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import Title from '../components/Title';
+
 const TodoPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -8,7 +10,11 @@ const TodoPage = () => {
     if (!accessToken) navigate('/signin');
   });
 
-  return <div>투두 페이지입니다.</div>;
+  return (
+    <section className="flex h-96 w-full flex-col items-center justify-between">
+      <Title>투두 리스트</Title>
+    </section>
+  );
 };
 
 export default TodoPage;

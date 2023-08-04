@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
+import Title from '../components/Title';
 import isValid from '../utils/isValid';
 import { axiosFetch } from '../api/axiosInstance';
 
@@ -41,7 +42,7 @@ const SignUpPage = () => {
 
   return (
     <section className="flex h-96 w-full flex-col items-center justify-between">
-      <div className="text-4xl font-bold">회원가입</div>
+      <Title>회원가입</Title>
       <Input>
         <Input.Label htmlFor="email">이메일</Input.Label>
         <Input.TextField
