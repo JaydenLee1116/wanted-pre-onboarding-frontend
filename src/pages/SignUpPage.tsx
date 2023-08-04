@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import isValid from '../utils/isValid';
+import { axiosFetch } from '../api/axiosInstance';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -18,6 +19,20 @@ const SignUpPage = () => {
   };
 
   const isSignUpBtnDisabled = !isValid.email(email) || !isValid.password(password);
+
+  const handleSignUpBtnClick = async () => {
+    try {
+      const res = await axiosFetch.post('/auth/signup', {
+        email,
+        password,
+      });
+      const { status } = res;
+      console.log('응답 확인: ', res);
+      if (status === 201) navigate('/signin');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <section className="flex h-96 w-full flex-col items-center justify-between">
@@ -49,16 +64,7 @@ const SignUpPage = () => {
           ))}
       </Input>
       <section className="flex w-48 flex-row justify-between">
-        <Button
-          onClick={() => {
-            // TODO: 회원가입 POST 요청 보내기
-            // TODO: 회원가입 성공 시 로그인 페이지로 이동하기
-            // TODO: 회원가입 실패 시 에러 메시지 보여주기
-            navigate('/signin');
-          }}
-          data-testid="signup-button"
-          disabled={isSignUpBtnDisabled}
-        >
+        <Button onClick={handleSignUpBtnClick} data-testid="signup-button" disabled={isSignUpBtnDisabled}>
           회원가입하기
         </Button>
         <Button
