@@ -17,13 +17,15 @@ const TodoPage = () => {
   return (
     <PageLayout>
       <Title>투두 리스트</Title>
-      <Input>
-        <Input.Label htmlFor="todo">투두를 입력해주세요!</Input.Label>
-        <Input.TextField id="todo" type="text" value="" onChange={() => {}} data-testid="new-todo-input" />
-      </Input>
-      <Button onClick={() => {}} data-testid="new-todo-add-button">
-        추가
-      </Button>
+      <section className="flex flex-col">
+        <Input>
+          <Input.Label htmlFor="todo">투두를 입력해주세요!</Input.Label>
+          <Input.TextField id="todo" type="text" value="" onChange={() => {}} data-testid="new-todo-input" />
+        </Input>
+        <Button onClick={() => {}} data-testid="new-todo-add-button">
+          추가
+        </Button>
+      </section>
       <TodoList>
         <TodoList.Item>투두 리스트 1</TodoList.Item>
         <TodoList.Item>투두 리스트 2</TodoList.Item>
