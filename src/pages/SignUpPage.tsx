@@ -30,6 +30,7 @@ const SignUpPage = () => {
       });
       navigate('/signin');
     } catch (err) {
+      // TODO: 에러 처리
       console.log(err);
     }
   };

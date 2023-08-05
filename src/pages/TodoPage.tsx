@@ -55,6 +55,7 @@ const TodoPage = () => {
         const { data } = res;
         setTodos(data);
       } catch (err) {
+        // TODO: 에러 처리
         console.log(err);
       }
     };

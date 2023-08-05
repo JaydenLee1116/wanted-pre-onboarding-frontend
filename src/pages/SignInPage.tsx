@@ -33,6 +33,7 @@ const SignInPage = () => {
       localStorage.setItem('accessToken', accessToken);
       navigate('/todo');
     } catch (err) {
+      // TODO: 에러 처리
       console.log(err);
     }
   };
