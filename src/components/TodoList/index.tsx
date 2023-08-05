@@ -50,7 +50,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
     setModifiedTodo(todo);
   };
 
-  // NOTE: [PUT] 투두 수정
+  // NOTE: [PUT] 투두 내용 수정
   const handleSubmitBtnClick = async () => {
     try {
       const res = await axiosFetch.put(`/todos/${id}`, {
@@ -65,6 +65,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
     }
   };
 
+  // NOTE: [DELETE] 투두 삭제
   const handleDeleteBtnClick = async () => {
     try {
       await axiosFetch.delete(`/todos/${id}`);
