@@ -81,8 +81,10 @@ const TodoPage = () => {
         </Button>
       </section>
       <TodoList>
-        {todos.map(({ todo, id }) => (
-          <TodoList.Item key={id}>{todo}</TodoList.Item>
+        {todos.map(({ id, todo, isCompleted }) => (
+          <TodoList.Item key={id} id={id} isCompleted={isCompleted}>
+            {todo}
+          </TodoList.Item>
         ))}
       </TodoList>
     </PageLayout>
