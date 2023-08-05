@@ -24,13 +24,11 @@ const SignUpPage = () => {
 
   const handleSignUpBtnClick = async () => {
     try {
-      const res = await axiosFetch.post('/auth/signup', {
+      await axiosFetch.post('/auth/signup', {
         email,
         password,
       });
-      const { status } = res;
-      console.log('응답 확인: ', res);
-      if (status === 201) navigate('/signin');
+      navigate('/signin');
     } catch (err) {
       console.log(err);
     }

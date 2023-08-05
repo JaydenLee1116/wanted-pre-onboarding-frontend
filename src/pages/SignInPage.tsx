@@ -28,13 +28,10 @@ const SignInPage = () => {
         email,
         password,
       });
-      const { status, data } = res;
+      const { data } = res;
       const accessToken = data.access_token;
-      console.log('응답 확인: ', res);
-      if (status === 200) {
-        localStorage.setItem('accessToken', accessToken);
-        navigate('/todo');
-      }
+      localStorage.setItem('accessToken', accessToken);
+      navigate('/todo');
     } catch (err) {
       console.log(err);
     }
