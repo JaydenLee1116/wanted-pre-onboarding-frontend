@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../components/common/Button';
@@ -15,10 +15,10 @@ const SignInPage = () => {
   const [password, setPassword] = useState('');
   const isSignInBtnDisabled = !isValid.email(email) || !isValid.password(password);
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
 
@@ -52,7 +52,7 @@ const SignInPage = () => {
           id="email"
           type="email"
           value={email}
-          onChange={handleEmailChange}
+          onChange={handleEmailInputChange}
           data-testid="email-input"
         />
         {!email ||
@@ -64,7 +64,7 @@ const SignInPage = () => {
           id="password"
           type="password"
           value={password}
-          onChange={handlePasswordChange}
+          onChange={handlePasswordInputChange}
           data-testid="password-input"
         />
         {!password ||

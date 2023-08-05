@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../components/common/Button';
@@ -22,7 +22,7 @@ const TodoPage = () => {
   const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleTodoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTodoInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTodo(e.target.value);
   };
 
@@ -72,7 +72,7 @@ const TodoPage = () => {
             id="todo"
             type="text"
             value={todo}
-            onChange={handleTodoChange}
+            onChange={handleTodoInputChange}
             data-testid="new-todo-input"
           />
         </Input>
