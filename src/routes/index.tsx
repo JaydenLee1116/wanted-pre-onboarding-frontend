@@ -36,6 +36,10 @@ const router = createBrowserRouter([
     path: ROUTE_PATH.ERROR,
     element: <ErrorPage />,
   },
+  {
+    path: '*',
+    element: <ErrorPage />,
+  },
 ]);
 
 export default router;

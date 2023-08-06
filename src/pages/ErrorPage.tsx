@@ -7,8 +7,9 @@ import { useEffect } from 'react';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const { message } = state;
+  const location = useLocation();
+  const { state } = location;
+  const message = state?.message;
 
   useEffect(() => {
     const timeout = setTimeout(() => {
