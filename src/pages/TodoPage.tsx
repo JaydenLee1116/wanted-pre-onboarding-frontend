@@ -42,6 +42,12 @@ const TodoPage = () => {
     }
   };
 
+  // NOTE: Logout 버튼 클릭 시, 로그아웃 및 홈으로 이동
+  const handleLogoutButtonClick = () => {
+    localStorage.removeItem('accessToken');
+    navigate(ROUTE_PATH.ROOT);
+  };
+
   // NOTE: 로그인되어 있지 않으면 로그인 페이지로 이동
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
@@ -96,6 +102,10 @@ const TodoPage = () => {
           </TodoList>
         </section>
       </main>
+      <footer className="flex w-96 flex-row justify-center gap-x-8">
+        <Button onClick={() => navigate(ROUTE_PATH.ROOT)}>홈으로 가기</Button>
+        <Button onClick={handleLogoutButtonClick}>로그아웃</Button>
+      </footer>
     </PageLayout>
   );
 };
