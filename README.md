@@ -26,7 +26,7 @@ npm start
 
 ## 🔨 배포 링크
 
-[배포 링크](https://main.d3qqu60e14jbzi.amplifyapp.com/)
+### [🚀 JDN TODO LIST - 배포 링크](https://main.d3qqu60e14jbzi.amplifyapp.com/)
 
 ## 🔨 데모 영상
 
