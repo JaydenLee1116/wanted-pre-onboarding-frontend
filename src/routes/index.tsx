@@ -5,7 +5,7 @@ import SignUpPage from '../pages/SignUpPage';
 import SignInPage from '../pages/SignInPage';
 import TodoPage from '../pages/TodoPage';
 
-export const PATH = Object.freeze({
+export const ROUTE_PATH = Object.freeze({
   ROOT: '/',
   SIGN_UP: '/signup',
   SIGN_IN: '/signin',
@@ -14,19 +14,19 @@ export const PATH = Object.freeze({
 
 const router = createBrowserRouter([
   {
-    path: PATH.ROOT,
+    path: ROUTE_PATH.ROOT,
     element: <RootPage />,
   },
   {
-    path: PATH.SIGN_UP,
+    path: ROUTE_PATH.SIGN_UP,
     element: <SignUpPage />,
   },
   {
-    path: PATH.SIGN_IN,
+    path: ROUTE_PATH.SIGN_IN,
     element: <SignInPage />,
   },
   {
-    path: PATH.TODO,
+    path: ROUTE_PATH.TODO,
     element: <TodoPage />,
   },
 ]);

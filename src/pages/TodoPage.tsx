@@ -1,8 +1,9 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { PATH } from '../routes';
 import { axiosFetch } from '../api/axiosInstance';
+import { ROUTE_PATH } from '../routes';
+import { API_PATH } from '../api/apiConfig';
 
 import Button from '../components/common/Button';
 import Input from '../components/common/Input';
@@ -30,7 +31,7 @@ const TodoPage = () => {
   const handleAddButtonClick = async () => {
     if (!todo) return;
     try {
-      const res = await axiosFetch.post('/todos', {
+      const res = await axiosFetch.post(API_PATH.TODOS, {
         todo,
       });
       const { data } = res;
@@ -44,14 +45,14 @@ const TodoPage = () => {
   // NOTE: 로그인되어 있지 않으면 로그인 페이지로 이동
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
-    if (!accessToken) navigate(PATH.SIGN_IN);
+    if (!accessToken) navigate(ROUTE_PATH.SIGN_IN);
   }, []);
 
   // NOTE: [GET] 투두 리스트
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const res = await axiosFetch.get('/todos');
+        const res = await axiosFetch.get(API_PATH.TODOS);
         const { data } = res;
         setTodos(data);
       } catch (err) {

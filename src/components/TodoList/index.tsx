@@ -3,6 +3,7 @@ import { ChangeEvent, ReactNode, useState } from 'react';
 import Button from '../common/Button';
 import Input from '../common/Input';
 
+import { API_PATH } from '../../api/apiConfig';
 import { axiosFetch } from '../../api/axiosInstance';
 
 interface TodoListProps {
@@ -27,7 +28,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
   // NOTE: [PUT] 투두 isCompleted 수정
   const handleIsCompletedInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     try {
-      axiosFetch.put(`/todos/${id}`, {
+      axiosFetch.put(`${API_PATH.TODOS}/${id}`, {
         todo,
         isCompleted: e.target.checked,
       });
@@ -53,7 +54,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
   // NOTE: [PUT] 투두 내용 수정
   const handleSubmitBtnClick = async () => {
     try {
-      const res = await axiosFetch.put(`/todos/${id}`, {
+      const res = await axiosFetch.put(`${API_PATH.TODOS}/${id}`, {
         todo: modifiedTodo,
         isCompleted: isChecked,
       });
@@ -68,7 +69,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
   // NOTE: [DELETE] 투두 삭제
   const handleDeleteBtnClick = async () => {
     try {
-      await axiosFetch.delete(`/todos/${id}`);
+      await axiosFetch.delete(`${API_PATH.TODOS}/${id}`);
       setIsDeleted(true);
     } catch (err) {
       console.log(err);

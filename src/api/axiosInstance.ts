@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 
-import { BASE_API_URL_SERVER, BASE_API_URL_LOCAL_SERVER } from '../constants/API';
+import { BASE_API_URL_SERVER, BASE_API_URL_LOCAL_SERVER } from './apiConfig';
 
 export const axiosFetch = axios.create({
   baseURL: BASE_API_URL_SERVER,
