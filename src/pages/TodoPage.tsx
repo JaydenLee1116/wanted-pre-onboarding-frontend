@@ -65,7 +65,9 @@ const TodoPage = () => {
         navigate(ROUTE_PATH.ERROR);
       }
     };
-    fetchTodos();
+    // NOTE: 로그인 되어 있지 않으면 GET 요청을 보내지 않음
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) fetchTodos();
   }, []);
 
   return (
@@ -74,7 +76,7 @@ const TodoPage = () => {
         <Title>오늘의 할 일</Title>
       </header>
       <main className="flex w-96 flex-col items-center gap-y-16">
-        <section className="flex flex-col">
+        <section className="flex flex-col gap-y-8">
           <Input>
             <Input.Label htmlFor="todo">할 일을 입력 후 추가해주세요!</Input.Label>
             <Input.TextField

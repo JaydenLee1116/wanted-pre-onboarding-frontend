@@ -2,6 +2,7 @@ import { HTMLAttributes, ReactNode, InputHTMLAttributes, LabelHTMLAttributes, Ch
 
 interface InputProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
+  size?: 'small' | 'full';
 }
 interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   htmlFor: string;
@@ -17,9 +18,11 @@ interface BottomTextProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode;
 }
 
-const Input = ({ children }: InputProps) => {
+const Input = ({ children, size = 'full' }: InputProps) => {
+  const sizeClass = size === 'small' ? 'w-36' : 'w-full';
+
   return (
-    <div className="relative mb-6 flex h-fit w-full flex-col items-center justify-between">{children}</div>
+    <div className={`relative flex h-fit ${sizeClass} flex-col items-center justify-between`}>{children}</div>
   );
 };
 const Label = ({ htmlFor, children, ...props }: LabelProps) => {
@@ -36,7 +39,7 @@ const TextField = ({ id, type, value, onChange, ...props }: TextFieldProps) => {
       type={type}
       value={value}
       onChange={onChange}
-      className="rounded-xl border-2 border-blue-500 p-1"
+      className="w-full rounded-xl border-2 border-blue-500 p-1"
       {...props}
     />
   );

@@ -90,8 +90,8 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
             onChange={handleIsCompletedInputChange}
           />
           {isModifyMode ? (
-            <section>
-              <Input>
+            <section className="flex w-full flex-row items-center justify-end gap-x-4">
+              <Input size="small">
                 <Input.TextField
                   id={`todo-modify-input-${id}`}
                   type="text"
