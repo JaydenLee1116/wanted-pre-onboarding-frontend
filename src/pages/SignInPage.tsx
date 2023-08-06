@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useLayoutEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,7 +47,7 @@ const SignInPage = () => {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) navigate(ROUTE_PATH.TODO);
   }, []);
