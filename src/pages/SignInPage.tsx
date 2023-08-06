@@ -51,7 +51,7 @@ const SignInPage = () => {
         <Title>로그인</Title>
       </header>
       <main className="flex w-96 flex-col items-center gap-y-16">
-        <section className="flex flex-col gap-y-8">
+        <section className="flex w-60 flex-col gap-y-8">
           <Input>
             <Input.Label htmlFor="email">이메일</Input.Label>
             <Input.TextField

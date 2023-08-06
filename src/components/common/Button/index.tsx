@@ -7,13 +7,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = ({ onClick, disabled = false, children, ...props }: ButtonProps) => {
-  const disabledStyle = disabled ? 'bg-gray-300' : 'bg-blue-300 hover:bg-blue-400';
+  const disabledStyle = disabled
+    ? 'border-gray-500 hover:border-red-500 opacity-50 '
+    : 'border-blue-500 hover:border-green-500';
 
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`rounded-xl border p-2 ${disabledStyle}`}
+      className={`rounded-xl border-2 p-2 ${disabledStyle}`}
       {...props}
     >
       {children}

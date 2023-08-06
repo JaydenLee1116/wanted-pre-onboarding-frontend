@@ -84,7 +84,10 @@ const TodoPage = () => {
             추가
           </Button>
         </section>
-        <section className="no-scrollbar flex h-80 w-80 flex-col overflow-y-scroll scroll-smooth">
+        <section
+          className="no-scrollbar flex h-80 w-80 flex-col overflow-y-scroll 
+        scroll-smooth rounded-xl border-2 border-blue-500"
+        >
           <TodoList>
             {todos.map(({ id, todo, isCompleted }) => (
               <TodoList.Item key={id} id={id} isCompleted={isCompleted}>

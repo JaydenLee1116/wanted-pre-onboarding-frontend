@@ -36,7 +36,7 @@ const TextField = ({ id, type, value, onChange, ...props }: TextFieldProps) => {
       type={type}
       value={value}
       onChange={onChange}
-      className="border border-blue-300"
+      className="rounded-xl border-2 border-blue-500 p-1"
       {...props}
     />
   );
