@@ -37,7 +37,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
       });
       setIsChecked(e.target.checked);
     } catch (err) {
-      console.log(err);
+      navigate(ROUTE_PATH.ERROR);
     }
   };
 
@@ -65,7 +65,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
       setTodo(data.todo);
       setIsModifyMode(false);
     } catch (err) {
-      console.log(err);
+      navigate(ROUTE_PATH.ERROR);
     }
   };
 

@@ -33,12 +33,10 @@ const SignUpPage = () => {
       });
       navigate(ROUTE_PATH.SIGN_IN);
     } catch (err) {
-      console.log(err);
       if (axios.isAxiosError(err)) {
         const { response } = err;
         const { data } = response!;
         const { message } = data;
-        console.log(message);
         navigate(ROUTE_PATH.ERROR, { state: { message } });
       } else {
         navigate(ROUTE_PATH.ERROR);

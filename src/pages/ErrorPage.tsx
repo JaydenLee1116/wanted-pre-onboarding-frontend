@@ -10,7 +10,6 @@ const ErrorPage = () => {
   const { state } = useLocation();
   const { message } = state;
 
-  console.log(location);
   useEffect(() => {
     const timeout = setTimeout(() => {
       navigate(ROUTE_PATH.ROOT);
