@@ -1,10 +1,12 @@
 import { ChangeEvent, ReactNode, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../common/Button';
 import Input from '../common/Input';
 
-import { API_PATH } from '../../api/apiConfig';
 import { axiosFetch } from '../../api/axiosInstance';
+import { ROUTE_PATH } from '../../routes';
+import { API_PATH } from '../../api/apiConfig';
 
 interface TodoListProps {
   children: ReactNode;
@@ -19,6 +21,7 @@ const TodoList = ({ children }: TodoListProps) => {
   return <ul className="flex flex-col items-start justify-start">{children}</ul>;
 };
 const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: ItemProps) => {
+  const navigate = useNavigate();
   const [todo, setTodo] = useState(initialTodo);
   const [isChecked, setIsChecked] = useState(initialIsChecked);
   const [isModifyMode, setIsModifyMode] = useState(false);
@@ -72,7 +75,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
       await axiosFetch.delete(`${API_PATH.TODOS}/${id}`);
       setIsDeleted(true);
     } catch (err) {
-      console.log(err);
+      navigate(ROUTE_PATH.ERROR);
     }
   };
 

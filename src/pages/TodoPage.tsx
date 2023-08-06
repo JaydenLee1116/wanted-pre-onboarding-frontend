@@ -38,7 +38,7 @@ const TodoPage = () => {
       setTodos([...todos, data]);
       setTodo('');
     } catch (err) {
-      console.log(err);
+      navigate(ROUTE_PATH.ERROR);
     }
   };
 
@@ -56,8 +56,7 @@ const TodoPage = () => {
         const { data } = res;
         setTodos(data);
       } catch (err) {
-        // TODO: 에러 처리
-        console.log(err);
+        navigate(ROUTE_PATH.ERROR);
       }
     };
     fetchTodos();

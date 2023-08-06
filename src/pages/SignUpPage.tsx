@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 import isValid from '../utils/isValid';
@@ -32,8 +33,16 @@ const SignUpPage = () => {
       });
       navigate(ROUTE_PATH.SIGN_IN);
     } catch (err) {
-      // TODO: 에러 처리
       console.log(err);
+      if (axios.isAxiosError(err)) {
+        const { response } = err;
+        const { data } = response!;
+        const { message } = data;
+        console.log(message);
+        navigate(ROUTE_PATH.ERROR, { state: { message } });
+      } else {
+        navigate(ROUTE_PATH.ERROR);
+      }
     }
   };
 
