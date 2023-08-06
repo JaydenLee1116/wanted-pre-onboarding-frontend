@@ -1,13 +1,14 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { PATH } from '../routes';
+import { axiosFetch } from '../api/axiosInstance';
+
 import Button from '../components/common/Button';
 import Input from '../components/common/Input';
 import PageLayout from '../components/common/PageLayout';
 import Title from '../components/common/Title';
 import TodoList from '../components/TodoList';
-
-import { axiosFetch } from '../api/axiosInstance';
 
 interface Todo {
   id: number;
@@ -18,7 +19,6 @@ interface Todo {
 
 const TodoPage = () => {
   const navigate = useNavigate();
-
   const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState<Todo[]>([]);
 
@@ -44,7 +44,7 @@ const TodoPage = () => {
   // NOTE: 로그인되어 있지 않으면 로그인 페이지로 이동
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
-    if (!accessToken) navigate('/signin');
+    if (!accessToken) navigate(PATH.SIGN_IN);
   }, []);
 
   // NOTE: [GET] 투두 리스트

@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
+import { PATH } from '../routes';
+
 import Button from '../components/common/Button';
 import PageLayout from '../components/common/PageLayout';
 import Title from '../components/common/Title';
@@ -13,14 +15,14 @@ const RootPage = () => {
       <section className="flex w-48 flex-row justify-between">
         <Button
           onClick={() => {
-            navigate('/signup');
+            navigate(PATH.SIGN_UP);
           }}
         >
           회원가입
         </Button>
         <Button
           onClick={() => {
-            navigate('/signin');
+            navigate(PATH.SIGN_IN);
           }}
         >
           로그인

@@ -1,13 +1,14 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { PATH } from '../routes';
+import isValid from '../utils/isValid';
+import { axiosFetch } from '../api/axiosInstance';
+
 import Button from '../components/common/Button';
 import Input from '../components/common/Input';
 import PageLayout from '../components/common/PageLayout';
 import Title from '../components/common/Title';
-
-import isValid from '../utils/isValid';
-import { axiosFetch } from '../api/axiosInstance';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const SignUpPage = () => {
         email,
         password,
       });
-      navigate('/signin');
+      navigate(PATH.SIGN_IN);
     } catch (err) {
       // TODO: 에러 처리
       console.log(err);
@@ -37,7 +38,7 @@ const SignUpPage = () => {
 
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) navigate('/todo');
+    if (accessToken) navigate(PATH.TODO);
   }, []);
 
   return (
@@ -75,7 +76,7 @@ const SignUpPage = () => {
         </Button>
         <Button
           onClick={() => {
-            navigate('/');
+            navigate(PATH.ROOT);
           }}
         >
           취소하기
