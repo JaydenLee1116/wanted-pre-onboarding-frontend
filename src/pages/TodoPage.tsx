@@ -71,12 +71,12 @@ const TodoPage = () => {
   return (
     <PageLayout>
       <header>
-        <Title>투두 리스트</Title>
+        <Title>오늘의 할 일</Title>
       </header>
       <main className="flex w-96 flex-col items-center gap-y-16">
         <section className="flex flex-col">
           <Input>
-            <Input.Label htmlFor="todo">투두를 입력해주세요!</Input.Label>
+            <Input.Label htmlFor="todo">할 일을 입력 후 추가해주세요!</Input.Label>
             <Input.TextField
               id="todo"
               type="text"
