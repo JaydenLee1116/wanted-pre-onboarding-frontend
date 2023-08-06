@@ -44,45 +44,53 @@ const SignUpPage = () => {
 
   return (
     <PageLayout>
-      <Title>회원가입</Title>
-      <Input>
-        <Input.Label htmlFor="email">이메일</Input.Label>
-        <Input.TextField
-          id="email"
-          type="email"
-          value={email}
-          onChange={handleEmailInputChange}
-          data-testid="email-input"
-        />
-        {!email ||
-          (!isValid.email(email) && <Input.BottomText>이메일 형식에 맞게 입력해주세요.</Input.BottomText>)}
-      </Input>
-      <Input>
-        <Input.Label htmlFor="password">비밀번호</Input.Label>
-        <Input.TextField
-          id="password"
-          type="password"
-          value={password}
-          onChange={handlePasswordInputChange}
-          data-testid="password-input"
-        />
-        {!password ||
-          (!isValid.password(password) && (
-            <Input.BottomText>비밀번호는 8자 이상이어야 합니다.</Input.BottomText>
-          ))}
-      </Input>
-      <section className="flex w-48 flex-row justify-between">
-        <Button onClick={handleSignUpBtnClick} data-testid="signup-button" disabled={isSignUpBtnDisabled}>
-          회원가입하기
-        </Button>
-        <Button
-          onClick={() => {
-            navigate(ROUTE_PATH.ROOT);
-          }}
-        >
-          취소하기
-        </Button>
-      </section>
+      <header>
+        <Title>회원가입</Title>
+      </header>
+      <main className="flex w-96 flex-col items-center gap-y-16">
+        <section className="flex flex-col gap-y-8">
+          <Input>
+            <Input.Label htmlFor="email">이메일</Input.Label>
+            <Input.TextField
+              id="email"
+              type="email"
+              value={email}
+              onChange={handleEmailInputChange}
+              data-testid="email-input"
+            />
+            {!email ||
+              (!isValid.email(email) && (
+                <Input.BottomText>이메일 형식에 맞게 입력해주세요.</Input.BottomText>
+              ))}
+          </Input>
+          <Input>
+            <Input.Label htmlFor="password">비밀번호</Input.Label>
+            <Input.TextField
+              id="password"
+              type="password"
+              value={password}
+              onChange={handlePasswordInputChange}
+              data-testid="password-input"
+            />
+            {!password ||
+              (!isValid.password(password) && (
+                <Input.BottomText>비밀번호는 8자 이상이어야 합니다.</Input.BottomText>
+              ))}
+          </Input>
+        </section>
+        <section className="flex w-96 flex-row justify-center gap-x-8">
+          <Button onClick={handleSignUpBtnClick} data-testid="signup-button" disabled={isSignUpBtnDisabled}>
+            회원가입하기
+          </Button>
+          <Button
+            onClick={() => {
+              navigate(ROUTE_PATH.ROOT);
+            }}
+          >
+            취소하기
+          </Button>
+        </section>
+      </main>
     </PageLayout>
   );
 };

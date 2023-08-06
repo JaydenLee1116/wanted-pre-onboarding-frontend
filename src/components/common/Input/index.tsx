@@ -43,7 +43,7 @@ const TextField = ({ id, type, value, onChange, ...props }: TextFieldProps) => {
 };
 const BottomText = ({ children, ...props }: BottomTextProps) => {
   return (
-    <p className="absolute top-24 cursor-default select-none" {...props}>
+    <p className="absolute top-24 cursor-default select-none text-sm text-red-500" {...props}>
       {children}
     </p>
   );

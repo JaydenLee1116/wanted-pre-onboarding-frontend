@@ -11,8 +11,10 @@ const RootPage = () => {
 
   return (
     <PageLayout>
-      <Title className="text-4xl font-bold">JDN TODO LIST</Title>
-      <section className="flex w-48 flex-row justify-between">
+      <header>
+        <Title className="text-4xl font-bold">JDN TODO LIST</Title>
+      </header>
+      <main className="flex w-48 flex-row items-center justify-between">
         <Button
           onClick={() => {
             navigate(ROUTE_PATH.SIGN_UP);
@@ -27,7 +29,7 @@ const RootPage = () => {
         >
           로그인
         </Button>
-      </section>
+      </main>
     </PageLayout>
   );
 };

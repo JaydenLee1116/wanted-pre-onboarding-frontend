@@ -65,29 +65,35 @@ const TodoPage = () => {
 
   return (
     <PageLayout>
-      <Title>투두 리스트</Title>
-      <section className="flex flex-col">
-        <Input>
-          <Input.Label htmlFor="todo">투두를 입력해주세요!</Input.Label>
-          <Input.TextField
-            id="todo"
-            type="text"
-            value={todo}
-            onChange={handleTodoInputChange}
-            data-testid="new-todo-input"
-          />
-        </Input>
-        <Button onClick={handleAddButtonClick} data-testid="new-todo-add-button">
-          추가
-        </Button>
-      </section>
-      <TodoList>
-        {todos.map(({ id, todo, isCompleted }) => (
-          <TodoList.Item key={id} id={id} isCompleted={isCompleted}>
-            {todo}
-          </TodoList.Item>
-        ))}
-      </TodoList>
+      <header>
+        <Title>투두 리스트</Title>
+      </header>
+      <main className="flex w-96 flex-col items-center gap-y-16">
+        <section className="flex flex-col">
+          <Input>
+            <Input.Label htmlFor="todo">투두를 입력해주세요!</Input.Label>
+            <Input.TextField
+              id="todo"
+              type="text"
+              value={todo}
+              onChange={handleTodoInputChange}
+              data-testid="new-todo-input"
+            />
+          </Input>
+          <Button onClick={handleAddButtonClick} data-testid="new-todo-add-button">
+            추가
+          </Button>
+        </section>
+        <section className="no-scrollbar flex h-80 w-80 flex-col overflow-y-scroll scroll-smooth">
+          <TodoList>
+            {todos.map(({ id, todo, isCompleted }) => (
+              <TodoList.Item key={id} id={id} isCompleted={isCompleted}>
+                {todo}
+              </TodoList.Item>
+            ))}
+          </TodoList>
+        </section>
+      </main>
     </PageLayout>
   );
 };

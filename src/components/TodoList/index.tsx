@@ -16,7 +16,7 @@ interface ItemProps {
 }
 
 const TodoList = ({ children }: TodoListProps) => {
-  return <ul>{children}</ul>;
+  return <ul className="flex flex-col items-start justify-start">{children}</ul>;
 };
 const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: ItemProps) => {
   const [todo, setTodo] = useState(initialTodo);
@@ -79,7 +79,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
   return (
     <>
       {isDeleted || (
-        <li className="flex w-60 flex-row items-center justify-between">
+        <li className="flex w-full flex-row items-center justify-start border-b border-blue-300 p-2">
           <input
             id={`todo-checkbox-${id}`}
             type="checkbox"
@@ -87,7 +87,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
             onChange={handleIsCompletedInputChange}
           />
           {isModifyMode ? (
-            <>
+            <section>
               <Input>
                 <Input.TextField
                   id={`todo-modify-input-${id}`}
@@ -103,10 +103,10 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
               <Button onClick={handleModifyCancelBtnClick} data-testid="cancel-button">
                 취소
               </Button>
-            </>
+            </section>
           ) : (
-            <>
-              <label htmlFor={`todo-checkbox-${id}`}>
+            <section className="flex w-full flex-row items-center justify-end gap-x-4">
+              <label className="no-scrollbar w-1/2 overflow-x-scroll" htmlFor={`todo-checkbox-${id}`}>
                 <span>{todo}</span>
               </label>
               <Button onClick={handleModifyBtnClick} data-testid="modify-button">
@@ -115,7 +115,7 @@ const Item = ({ children: initialTodo, id, isCompleted: initialIsChecked }: Item
               <Button onClick={handleDeleteBtnClick} data-testid="delete-button">
                 삭제
               </Button>
-            </>
+            </section>
           )}
         </li>
       )}
